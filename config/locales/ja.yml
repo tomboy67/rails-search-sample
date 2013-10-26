@@ -1,0 +1,8 @@
+ja:
+  # activerecordではなく、activemodelとして定義する
+  activemodel:
+    models:
+      search_product: 商品
+    attributes:
+      search_product:
+        name: 名前

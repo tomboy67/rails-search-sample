@@ -1,0 +1,30 @@
+<% if @search_product.errors.any? %>
+  <ul>
+    <% @search_product.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for(@search_product, url: search_products_path) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit '検索' %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Product.human_attribute_name(:name) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
